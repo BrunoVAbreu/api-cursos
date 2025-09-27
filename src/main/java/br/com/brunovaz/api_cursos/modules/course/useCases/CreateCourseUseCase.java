@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.brunovaz.api_cursos.modules.course.CourseEntity;
-import br.com.brunovaz.api_cursos.Exceptions.CourseNotFoundException;
+import br.com.brunovaz.api_cursos.modules.course.Exceptions.CourseNotFoundException;
 import br.com.brunovaz.api_cursos.modules.course.repository.CourseRepository;
 
 @Service

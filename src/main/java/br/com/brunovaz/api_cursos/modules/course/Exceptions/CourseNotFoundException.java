@@ -1,4 +1,4 @@
-package br.com.brunovaz.api_cursos.Exceptions;
+package br.com.brunovaz.api_cursos.modules.course.Exceptions;
 
 public class CourseNotFoundException extends RuntimeException{
     public CourseNotFoundException(){
