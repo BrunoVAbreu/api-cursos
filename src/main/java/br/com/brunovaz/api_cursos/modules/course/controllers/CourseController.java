@@ -2,10 +2,12 @@ package br.com.brunovaz.api_cursos.modules.course.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.brunovaz.api_cursos.modules.course.CourseEntity;
-import br.com.brunovaz.api_cursos.modules.course.repository.CourseRepository;
 import br.com.brunovaz.api_cursos.modules.course.useCases.CreateCourseUseCase;
 import br.com.brunovaz.api_cursos.modules.course.useCases.FindByCategoryUseCase;
 import br.com.brunovaz.api_cursos.modules.course.useCases.FindByNameAndCategoryUseCase;
 import br.com.brunovaz.api_cursos.modules.course.useCases.FindByNameUseCase;
 import br.com.brunovaz.api_cursos.modules.course.useCases.ListAllCoursesUseCase;
+import br.com.brunovaz.api_cursos.modules.course.useCases.UpdateCourseUseCase;
 
 
 @RestController
@@ -27,6 +29,9 @@ public class CourseController {
 
     @Autowired
     CreateCourseUseCase createCourseUseCase;
+
+    @Autowired
+    UpdateCourseUseCase updateCourseUseCase;
 
     @Autowired
     ListAllCoursesUseCase listAllCoursesUseCase;
@@ -71,8 +76,21 @@ public class CourseController {
         }catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-
-
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Object> update(@RequestBody CourseEntity courseEntity, @PathVariable UUID id) {
+        try{
+            if(courseEntity.getName() == null && courseEntity.getCategory() == null){
+                return ResponseEntity.badRequest().body("Insira valores para nome e/ou categoria");
+            }
+            var course = this.updateCourseUseCase.execute(courseEntity, id);
+            return ResponseEntity.ok().body(course);
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+
+        }
+    }
+    
     
 }
