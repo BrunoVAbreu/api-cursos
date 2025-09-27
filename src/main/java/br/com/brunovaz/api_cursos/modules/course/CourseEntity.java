@@ -5,7 +5,6 @@ import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.annotations.ValueGenerationType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,6 +17,7 @@ import lombok.Data;
 @Data
 @Entity(name="course")
 public class CourseEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
