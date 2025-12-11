@@ -1,1 +1,1 @@
-api cursos
+api para controle de cursos
