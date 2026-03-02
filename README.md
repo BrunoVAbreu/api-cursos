@@ -41,7 +41,7 @@
 <h3 id="cloning">Clonando</h3>
 
 ```bash
-git clone https://github.com/seu-usuario/api-cursos.git
+git clone https://github.com/BrunoVAbreu/api-cursos.git
 ```
 
 <h3 id="env">Variáveis de Ambiente</h3>
