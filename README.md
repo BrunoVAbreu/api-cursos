@@ -5,12 +5,10 @@
 
 <h1 align="center" style="font-weight: bold;">API Cursos 🎓</h1>
 
-![license][LICENSE__BADGE]
 ![java][JAVA_BADGE]
 ![spring][SPRING_BADGE]
 ![postgres][POSTGRES_BADGE]
 ![docker][DOCKER_BADGE]
-![prs][PRS_BADGE]
 
 <details open="open">
 <summary>Índice</summary>
